@@ -1,8 +1,11 @@
-import fetchAllPlayers from "../ajaxHelpers"
+import {fetchAllPlayers} from "../ajaxHelpers"
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 const AllPlayers = () => {
     const [ allPlayers, setAllPlyers ] = useState([])
+    const navigate = useNavigate()
+
     useEffect(() => {
         const getFetchAllPlayers = async () => {
 
@@ -24,7 +27,7 @@ const AllPlayers = () => {
                     <div key = {index}>
                         <h1>{player.name}</h1>
                         <img src={player.imageUrl}/>
-                        <button>See Details</button>
+                        <button onClick={()=> navigate(`/player/${player.id}`)}>See Details</button>
                         <button>Delete</button>
 
                     </div>

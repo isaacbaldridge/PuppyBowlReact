@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route, useParams } from "react-router-dom"
 import AllPlayers from './components/AllPlayers'
 import SinglePlayer from './components/SinglePlayer'
 import NewPlayerform from './components/NewPlayerForm'
@@ -12,8 +12,8 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path="/" element={<AllPlayers/>}/>
-        <Route path="/players/:id" element={<SinglePlayer/>}/>
-        <Route path="newform" element={<NewPlayerform/>}/>
+        <Route path="/player/:id" element={<SinglePlayer/>}/>
+        <Route path="/newform" element={<NewPlayerform/>}/>
       </Routes>
 
     </div>

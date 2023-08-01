@@ -1,6 +1,6 @@
+import { useParams } from "react-router-dom"
 
-
-const fetchAllPlayers = async () => {
+export async function fetchAllPlayers() {
     try {
         const response = await fetch("https://fsa-puppy-bowl.herokuapp.com/api/2306-ftv-et-web-ft/players")
         const data = await response.json()
@@ -10,4 +10,23 @@ const fetchAllPlayers = async () => {
         console.log("error while trying to fetch all players")
     }
 }
- export default fetchAllPlayers
+//  export default fetchAllPlayers
+
+
+
+export async function fetchSinglePlayer ()  {
+
+    // const { id } = useParams()
+
+    try {
+        const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2306-ftv-et-web-ft/players/14769`)
+        const data = await response.json()
+        // console.log(data.data.player)
+        return(data.data.player)
+
+    } catch (err) {
+        console.log("error while trying to fetch a single player")
+    }
+}
+
+// export fetchSinglePlayer
