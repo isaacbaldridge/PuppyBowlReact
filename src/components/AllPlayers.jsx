@@ -2,8 +2,8 @@ import {FetchAllPlayers} from "../ajaxHelpers"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-const AllPlayers = () => {
-    const [ allPlayers, setAllPlayers ] = useState([])
+const AllPlayers = ({allPlayers, setAllPlayers}) => {
+    // const [ allPlayers, setAllPlayers ] = useState([])
     const navigate = useNavigate()
 
     useEffect(() => {

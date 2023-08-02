@@ -21,15 +21,15 @@ const SinglePlayer = () => {
         getFetchSinglePlayer()
     }, [])
     
-    // console.log(singlePlayer.team.name)
+    // console.log(singlePlayer)
     
     return (
         <div>
-            {singlePlayer.team && (
+            {singlePlayer && (
             <div>
                 <img src={singlePlayer.imageUrl}/>
                 <h1>{singlePlayer.name}</h1>
-                <h3>| {singlePlayer.breed} | {singlePlayer.status} status | Team {singlePlayer.team.name} |</h3>
+                <h3>| {singlePlayer.breed} | {singlePlayer.status} status | ID {singlePlayer.id}  |</h3>
             </div>
             )}
         </div>

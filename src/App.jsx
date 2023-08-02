@@ -7,13 +7,17 @@ import NavBar from './components/NavBar'
 import './App.css'
 
 function App() {
+
+  const [ allPlayers, setAllPlayers ] = useState([])
+
   return (
     <div>
       <NavBar/>
+      <NewPlayerform />
       <Routes>
-        <Route path="/" element={<AllPlayers/>}/>
+        <Route path="/" element={<AllPlayers allPlayers={allPlayers} setAllPlayers={setAllPlayers}/>}/>
         <Route path="/player/:id" element={<SinglePlayer/>}/>
-        <Route path="/newform" element={<NewPlayerform/>}/>
+        <Route path="/newform" element={<NewPlayerform setAllPlayers={setAllPlayers}/>}/>
       </Routes>
 
     </div>
