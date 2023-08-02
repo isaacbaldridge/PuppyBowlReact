@@ -4,25 +4,34 @@ import { useParams } from "react-router-dom"
 
 const SinglePlayer = () => {
     const [ singlePlayer, setSinglePlayer ] = useState({})
+    const [ error, setError ] = useState(null)
     const { id } = useParams()
 
     useEffect(() => {
         const getFetchSinglePlayer = async () => {
-            await FetchSinglePlayer(id)
-            setSinglePlayer(await FetchSinglePlayer(id))
+            try {
+                await FetchSinglePlayer(id)
+                setSinglePlayer(await FetchSinglePlayer(id))
+
+            } catch (error) {
+                setError(error)
+            }
 
         }
         getFetchSinglePlayer()
     }, [])
-
-    // console.log(singlePlayer)
+    
+    // console.log(singlePlayer.team.name)
     
     return (
         <div>
-            <img src={singlePlayer.imageUrl}/>
-            {/* <h1>{singlePlayer.name}</h1> */}
-            {/* <h3>| {singlePlayer.breed} | {singlePlayer.status} status | Team {singlePlayer.team.name} |</h3> */}
-
+            {singlePlayer.team && (
+            <div>
+                <img src={singlePlayer.imageUrl}/>
+                <h1>{singlePlayer.name}</h1>
+                <h3>| {singlePlayer.breed} | {singlePlayer.status} status | Team {singlePlayer.team.name} |</h3>
+            </div>
+            )}
         </div>
     )
 }

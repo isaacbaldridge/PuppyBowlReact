@@ -20,7 +20,7 @@ export async function FetchSinglePlayer (id)  {
     try {
         const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2306-ftv-et-web-ft/players/${id}`)
         const data = await response.json()
-        console.log(data.data.player)
+        // console.log(data.data.player)
         return(data.data.player)
 
     } catch (err) {
