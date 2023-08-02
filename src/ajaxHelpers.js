@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom"
+import {useParams} from "react-router-dom"
 
-export async function fetchAllPlayers() {
+export async function FetchAllPlayers() {
     try {
         const response = await fetch("https://fsa-puppy-bowl.herokuapp.com/api/2306-ftv-et-web-ft/players")
         const data = await response.json()
@@ -14,14 +14,13 @@ export async function fetchAllPlayers() {
 
 
 
-export async function fetchSinglePlayer ()  {
+export async function FetchSinglePlayer (id)  {
 
-    // const { id } = useParams()
 
     try {
-        const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2306-ftv-et-web-ft/players/14769`)
+        const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2306-ftv-et-web-ft/players/${id}`)
         const data = await response.json()
-        // console.log(data.data.player)
+        console.log(data.data.player)
         return(data.data.player)
 
     } catch (err) {

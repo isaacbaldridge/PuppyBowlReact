@@ -1,17 +1,17 @@
-import {fetchAllPlayers} from "../ajaxHelpers"
+import {FetchAllPlayers} from "../ajaxHelpers"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 const AllPlayers = () => {
-    const [ allPlayers, setAllPlyers ] = useState([])
+    const [ allPlayers, setAllPlayers ] = useState([])
     const navigate = useNavigate()
 
     useEffect(() => {
         const getFetchAllPlayers = async () => {
 
-            await fetchAllPlayers()
+            await FetchAllPlayers()
 
-            setAllPlyers(await fetchAllPlayers())
+            setAllPlayers(await FetchAllPlayers())
         }
         
         getFetchAllPlayers()

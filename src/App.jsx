@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Routes, Route, useParams } from "react-router-dom"
+import {Routes, Route } from "react-router-dom"
 import AllPlayers from './components/AllPlayers'
 import SinglePlayer from './components/SinglePlayer'
 import NewPlayerform from './components/NewPlayerForm'

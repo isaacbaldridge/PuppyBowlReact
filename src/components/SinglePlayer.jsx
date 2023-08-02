@@ -1,4 +1,4 @@
-import { fetchSinglePlayer } from "../ajaxHelpers"
+import { FetchSinglePlayer } from "../ajaxHelpers"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
@@ -8,20 +8,20 @@ const SinglePlayer = () => {
 
     useEffect(() => {
         const getFetchSinglePlayer = async () => {
-            await fetchSinglePlayer()
-            setSinglePlayer(await fetchSinglePlayer())
+            await FetchSinglePlayer(id)
+            setSinglePlayer(await FetchSinglePlayer(id))
 
         }
         getFetchSinglePlayer()
     }, [])
 
+    // console.log(singlePlayer)
     
-    console.log(singlePlayer)
     return (
         <div>
             <img src={singlePlayer.imageUrl}/>
-            <h1>{singlePlayer.name}</h1>
-            <h3>| {singlePlayer.breed} | {singlePlayer.status} status | Team {singlePlayer.team.name} |</h3>
+            {/* <h1>{singlePlayer.name}</h1> */}
+            {/* <h3>| {singlePlayer.breed} | {singlePlayer.status} status | Team {singlePlayer.team.name} |</h3> */}
 
         </div>
     )
